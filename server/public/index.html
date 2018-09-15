@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Weekend 3 Project</title>
+</head>
+<body ng-app="TaskApp">
+    <h1>Task Tracker</h1>
+    <div ng-controller="TaskController as vm">
+        {{vm.message}}
+        <input ng-model="vm.objectToSend.description" type="text" placeholder="Your Task">
+        <input ng-model="vm.objectToSend.category"type="text" placeholder="Type of Task?">
+        <input ng-model="vm.objectToSend.completed"type="text" placeholder="Completed Y/N?">
+        <button ng-click="vm.addTask()">Complete</button>
+
+
+    </div>
+</body>
+</html>
