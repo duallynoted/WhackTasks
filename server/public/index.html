@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +11,38 @@
     <link rel="stylesheet" href="styles/style.css">
     <title>Weekend 3 Project</title>
 </head>
+
 <body ng-app="TaskApp">
-    <h1>Task Tracker</h1>
+    <h1>Whack Tasks</h1>
     <div ng-controller="TaskController as vm">
         {{vm.message}}
-        <input ng-model="vm.objectToSend.description" type="text" placeholder="Your Task">
-        <input ng-model="vm.objectToSend.category"type="text" placeholder="Type of Task?">
-        <input ng-model="vm.objectToSend.completed"type="text" placeholder="Completed Y/N?">
-        <button ng-click="vm.addTask()">Complete</button>
+        <form ng-model="vm.objectToSend">
+            <input ng-model="vm.objectToSend.task" type="text" placeholder="Your Task">
+            <input ng-model="vm.objectToSend.category" type="text" placeholder="Type of Task?">
+            <input ng-model="vm.objectToSend.completed" type="text" placeholder="Completed Y/N?">
+            <button ng-click="vm.addTask(vm.objectToSend)">Create</button>
+        </form>
 
-
+        <table class="task-table">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Category</th>
+                    <th>Completed</th>
+                </tr>
+            </thead>
+            <tbody id="task-output">
+                <tr ng-repeat="task in vm.tasksArray">
+                    <td>{{task.task}}</td>
+                    <td>{{task.category}}</td>
+                    <td>{{task.completed}}</td>
+                    <td><button ng-click="vm.updateTask(task)">Update Tasks</button></td>
+                    <td><button ng-click="vm.deleteTask(task)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+        {{vm}}
     </div>
 </body>
+
 </html>
