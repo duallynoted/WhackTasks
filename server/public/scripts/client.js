@@ -32,6 +32,12 @@ taskApp.controller('TaskController', ['$http', function ($http) {
         });
     }
     self.updateTask = function (taskToUpdate) {
+        swal({
+            title: "WhackTastic!",
+            text: "Get on With Your Day!",
+            icon: "success",
+            button: "Ooooh, click me, click ME!",
+          });
         $http({
             method: 'PUT',
             url: '/tasks',

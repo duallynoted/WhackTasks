@@ -21,7 +21,7 @@
             <input ng-model="vm.objectToSend.task" type="text" placeholder="Your Task" required>
             <input ng-model="vm.objectToSend.category" type="text" placeholder="Type of Task?" required>
             <input ng-model="vm.objectToSend.completed" type="text" placeholder="Completed Y/N?" required>
-            <button class="btn btn-primary" ng-click="vm.addTask(vm.objectToSend)">Create</button>
+            <button class="btn btn-primary" ng-click="vm.addTask(vm.objectToSend)">You Must Click This</button>
         </form>
 
         <table class="task-table">
@@ -37,12 +37,11 @@
                     <td>{{task.task}}</td>
                     <td>{{task.category}}</td>
                     <td>{{task.completed}}</td>
-                    <td><button ng-click="vm.updateTask(task)" ng-if="task.completed==false" ng-class="{complete: task.completed }">Completed</button>
+                    <td><button ng-click="vm.updateTask(task)" ng-if="task.completed==false">Completed</button>
                     <td><button ng-click="vm.deleteTask(task)">Delete</button></td>
                 </tr>
             </tbody>
         </table>
-        {{vm}}
     </div>
 </body>
 
