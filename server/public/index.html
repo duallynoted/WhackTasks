@@ -22,6 +22,9 @@
             <input ng-model="vm.objectToSend.category" type="text" placeholder="Type of Task?" required>
             <input ng-model="vm.objectToSend.completed" type="text" placeholder="Completed Y/N?" required>
             <button class="btn btn-primary" ng-click="vm.addTask(vm.objectToSend)">You Must Click This</button>
+            <input class="form-group col-md-6" type="text" ng-model="test" placeholder="Find Your WhackTask">
+      <br>
+      <br>
         </form>
 
         <table class="task-table">
@@ -33,7 +36,7 @@
                 </tr>
             </thead>
             <tbody id="task-output">
-                <tr ng-repeat="task in vm.tasksArray">
+                <tr ng-repeat="task in vm.tasksArray| filter: test">
                     <td>{{task.task}}</td>
                     <td>{{task.category}}</td>
                     <td>{{task.completed}}</td>
