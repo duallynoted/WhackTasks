@@ -16,11 +16,9 @@ app.listen(PORT, () => {
 
 //connect to Mongo via mongoose
 const mongoose = require('mongoose');
-const MongoURL = 'mongodb://localhost:27017/todos';
+mongoose.connect('mongodb://localhost:27017/todos', ({useNewUrlParser: true}));
 
-mongoose.connect(MongoURL, { useNewUrlParser: true });
-
-mongoose.connection.on('open', () => {
+mongoose.connection.on('connected', () => {
     console.log('Connected to Mongo');
 });
 mongoose.connection.on('error', (error) => {
