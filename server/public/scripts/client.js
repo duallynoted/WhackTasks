@@ -32,11 +32,10 @@ taskApp.controller('TaskController', ['$http', function ($http) {
         });
     }
     self.updateTask = function (taskToUpdate) {
-        taskToUpdate.ready_to_complete = true;
         $http({
             method: 'PUT',
             url: '/tasks',
-            data: taskToUpdate
+            params: taskToUpdate
         }).then(function (results) {
             console.log('Back from Server with PUT', results);
             self.getTask();
@@ -45,22 +44,6 @@ taskApp.controller('TaskController', ['$http', function ($http) {
             console.log('Error', error);
         })
     }
-    self.bool = true;
-    self.filterObject = {};
-
-    self.toggle = function () {
-        if (self.bool) {
-            self.bool = !self.bool;
-            self.filterObject = { ready_to_complete: true };
-            console.log(self.filterObject);
-        }
-        else {
-            self.filterObject = {};
-            self.bool = !self.bool;
-            console.log(self.filterObject);
-        }
-    }
-    self.filterObject = {};
 
     self.deleteTask = function (taskToDelete) {
         swal({

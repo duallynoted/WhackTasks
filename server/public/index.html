@@ -29,7 +29,7 @@
                 <tr>
                     <th>Task</th>
                     <th>Category</th>
-                    <th><a href="#" ng-click="vm.toggle()">Completed</a></th>
+                    <th>Completed</a></th>
                 </tr>
             </thead>
             <tbody id="task-output">
@@ -37,7 +37,7 @@
                     <td>{{task.task}}</td>
                     <td>{{task.category}}</td>
                     <td>{{task.completed}}</td>
-                    <td><button ng-click="vm.updateTask(task)" ng-hide="task.ready_to_complete">Completed</button>
+                    <td><button ng-click="vm.updateTask(task)" ng-if="task.completed==false" ng-class="{complete: task.completed }">Completed</button>
                     <td><button ng-click="vm.deleteTask(task)">Delete</button></td>
                 </tr>
             </tbody>

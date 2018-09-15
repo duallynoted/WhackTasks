@@ -31,7 +31,7 @@ const Schema = mongoose.Schema;
 const taskSchema = new Schema({
     task: { type: String },
     category: { type: String },
-    completed: {type: Boolean, required: true, default: false}
+    completed: {type: Boolean }
 });
 const Task = mongoose.model('tasks', taskSchema);
 
@@ -57,8 +57,14 @@ app.get('/tasks', (req, res) => {
 });
 
 app.put('/tasks', (req, res) => {
-    console.log('PUT to /tasks req.body =', req.body);
-    Task.findByIdAndUpdate(req.body._id, req.body).then((results) => {
+    // console.log('PUT to /tasks req.body =', req.body);
+    const taskToUpdate = {
+        _id: req.query._id,
+        task: req.query.task,
+        category: req.query.category,
+        completed: true
+    }
+    Task.findByIdAndUpdate(taskToUpdate._id, taskToUpdate).then((results) => {
       res.send(results);
     }).catch((error) => {
       console.log("Error: ", error);
