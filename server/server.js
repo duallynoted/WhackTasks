@@ -31,7 +31,7 @@ const Schema = mongoose.Schema;
 const taskSchema = new Schema({
     task: { type: String },
     category: { type: String },
-    completed: { type: String }
+    completed: {type: Boolean, required: true, default: false}
 });
 const Task = mongoose.model('tasks', taskSchema);
 
@@ -54,13 +54,24 @@ app.get('/tasks', (req, res) => {
         console.log("Error in server .find", error);
         res.sendStatus(500);
     })
-})
-app.delete('/tasks', (req, res) => {
-    console.log('Delete to /tasks req.query =', req.query);
-    Task.findByIdAndRemove(req.query._id).then((results) => {
+});
+
+app.put('/tasks', (req, res) => {
+    console.log('PUT to /tasks req.body =', req.body);
+    Task.findByIdAndUpdate(req.body._id, req.body).then((results) => {
       res.send(results);
     }).catch((error) => {
       console.log("Error: ", error);
       res.sendStatus(500);
     })
   });
+
+app.delete('/tasks', (req, res) => {
+    console.log('Delete to /tasks req.query =', req.query);
+    Task.findByIdAndRemove(req.query._id).then((results) => {
+        res.send(results);
+    }).catch((error) => {
+        console.log("Error: ", error);
+        res.sendStatus(500);
+    })
+});

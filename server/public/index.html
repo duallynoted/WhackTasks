@@ -7,20 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/client.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="vendors/bootstrap.min.css">
     <link rel="stylesheet" href="styles/style.css">
     <title>Weekend 3 Project</title>
 </head>
 
 <body class="container" ng-app="TaskApp">
-    <h1>Whack Tasks</h1>
+    <h1>WhackTasks</h1>
     <div ng-controller="TaskController as vm">
         {{vm.message}}
         <form ng-model="vm.objectToSend">
-            <input ng-model="vm.objectToSend.task" type="text" placeholder="Your Task">
-            <input ng-model="vm.objectToSend.category" type="text" placeholder="Type of Task?">
-            <input ng-model="vm.objectToSend.completed" type="text" placeholder="Completed Y/N?">
-            <button ng-click="vm.addTask(vm.objectToSend)">Create</button>
+            <input ng-model="vm.objectToSend.task" type="text" placeholder="Your Task" required>
+            <input ng-model="vm.objectToSend.category" type="text" placeholder="Type of Task?" required>
+            <input ng-model="vm.objectToSend.completed" type="text" placeholder="Completed Y/N?" required>
+            <button class="btn btn-primary" ng-click="vm.addTask(vm.objectToSend)">Create</button>
         </form>
 
         <table class="task-table">
@@ -28,7 +29,7 @@
                 <tr>
                     <th>Task</th>
                     <th>Category</th>
-                    <th>Completed</th>
+                    <th><a href="#" ng-click="vm.toggle()">Completed</a></th>
                 </tr>
             </thead>
             <tbody id="task-output">
@@ -36,7 +37,7 @@
                     <td>{{task.task}}</td>
                     <td>{{task.category}}</td>
                     <td>{{task.completed}}</td>
-                    <td><button ng-click="vm.updateTask(task)">Update Tasks</button></td>
+                    <td><button ng-click="vm.updateTask(task)" ng-hide="task.ready_to_complete">Completed</button>
                     <td><button ng-click="vm.deleteTask(task)">Delete</button></td>
                 </tr>
             </tbody>
