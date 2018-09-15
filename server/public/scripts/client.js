@@ -31,7 +31,49 @@ taskApp.controller('TaskController', ['$http', function ($http) {
             console.log('Error', error);
         });
     }
-
+    self.deleteTask = function (taskToDelete) {         
+        
+        $http({
+            method: 'DELETE',
+            url: '/tasks',
+            params: taskToDelete
+        }).then(function (results) {
+            console.log('in /delete', results);
+            self.getTask();
+        }).catch(function (error) {
+            alert('Error updating Task!');
+            console.log('Error', error);
+        })
+    }
     self.getTask();
 
 }]);
+
+
+
+// swal({
+//     title: "Are you sure?",
+//     text: "Once deleted, you will not be able to recover this task.",
+//     icon: "warning",
+//     buttons: true,
+//     dangerMode: true,
+// }).then(function (willDelete) {
+//     if (willDelete) {
+//         $http({
+//             method: 'DELETE',
+//             url: '/tasks',
+//             params: taskToDelete
+//         }).then(function (results) {
+//             console.log('in /delete', results);
+//             self.getTask();
+//         }).catch(function (error) {
+//             alert('Error updating Task!');
+//             console.log('Error', error);
+//         })
+//         swal("Just like that, your task is gone.", {
+//             icon: "success",
+//         });
+//     } else {
+//         swal("Your Task is safe.");
+//     }
+// });

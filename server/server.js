@@ -55,3 +55,12 @@ app.get('/tasks', (req, res) => {
         res.sendStatus(500);
     })
 })
+app.delete('/tasks', (req, res) => {
+    console.log('Delete to /tasks req.query =', req.query);
+    Task.findByIdAndRemove(req.query._id).then((results) => {
+      res.send(results);
+    }).catch((error) => {
+      console.log("Error: ", error);
+      res.sendStatus(500);
+    })
+  });
