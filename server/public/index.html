@@ -16,7 +16,7 @@
 </head>
 
 <body class="container" ng-app="TaskApp">
-    <div class="container">
+    <div class="jumbotron">
         <h1><i class="fas fa-check-double"></i>WhackTasks<i class="fas fa-check-double"></i></h1>
         <div ng-controller="TaskController as vm">
             {{vm.message}} <i class="fas fa-helicopter"></i>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <input ng-model="vm.objectToSend.completed" type="text" placeholder="Completed Y/N?" required>
-                <button class="btn btn-primary" ng-click="vm.addTask(vm.objectToSend)">You Must Click This</button>
+                <button class="btn btn-primary" ng-click="vm.addTask(vm.objectToSend)">Create WhackTask</button>
                 <br>
                 <br>
                 <input class="form-group col-md-6" type="text" ng-model="test" placeholder="Find Your WhackTask">
@@ -43,7 +43,9 @@
                     <tr>
                         <th>Task</th>
                         <th>Category</th>
-                        <th>Completed</a></th>
+                        <th>Status</th>
+                        <th>Completed</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody id="task-output">
