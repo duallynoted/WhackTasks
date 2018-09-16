@@ -9,44 +9,54 @@
     <script src="scripts/client.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="vendors/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="styles/style.css">
     <title>Weekend 3 Project</title>
 </head>
 
 <body class="container" ng-app="TaskApp">
-    <h1><i class="fas fa-check-double"></i>WhackTasks<i class="fas fa-check-double"></i></h1>
-    <div ng-controller="TaskController as vm">
-        {{vm.message}} <i class="fas fa-helicopter"></i>
-        <form ng-model="vm.objectToSend">
-            <br>
-            <input ng-model="vm.objectToSend.task" type="text" placeholder="WhackTask" required>
-            <input ng-model="vm.objectToSend.category" type="text" placeholder="Groceries? Banking?" required>
-            <input ng-model="vm.objectToSend.completed" type="text" placeholder="Completed Y/N?" required>
-            <button class="btn btn-primary" ng-click="vm.addTask(vm.objectToSend)">You Must Click This</button>
-            <input class="form-group col-md-6" type="text" ng-model="test" placeholder="Find Your WhackTask">
-      <br>
-      <br>
-        </form>
+    <div class="container">
+        <h1><i class="fas fa-check-double"></i>WhackTasks<i class="fas fa-check-double"></i></h1>
+        <div ng-controller="TaskController as vm">
+            {{vm.message}} <i class="fas fa-helicopter"></i>
+            <form ng-model="vm.objectToSend">
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input ng-model="vm.objectToSend.task" type="text" placeholder="WhackTask" required>
+                        <input ng-model="vm.objectToSend.category" type="text" placeholder="Groceries? Banking?"
+                            required>
+                    </div>
+                </div>
+                <input ng-model="vm.objectToSend.completed" type="text" placeholder="Completed Y/N?" required>
+                <button class="btn btn-primary" ng-click="vm.addTask(vm.objectToSend)">You Must Click This</button>
+                <br>
+                <br>
+                <input class="form-group col-md-6" type="text" ng-model="test" placeholder="Find Your WhackTask">
+                <br>
+                <br>
+            </form>
 
-        <table class="task-table">
-            <thead>
-                <tr>
-                    <th>Task</th>
-                    <th>Category</th>
-                    <th>Completed</a></th>
-                </tr>
-            </thead>
-            <tbody id="task-output">
-                <tr ng-repeat="task in vm.tasksArray| filter: test">
-                    <td>{{task.task}}</td>
-                    <td>{{task.category}}</td>
-                    <td>{{task.completed}}</td>
-                    <td><button ng-click="vm.updateTask(task)" ng-if="task.completed==false">Completed</button>
-                    <td><button ng-click="vm.deleteTask(task)">Delete</button></td>
-                </tr>
-            </tbody>
-        </table>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Category</th>
+                        <th>Completed</a></th>
+                    </tr>
+                </thead>
+                <tbody id="task-output">
+                    <tr ng-repeat="task in vm.tasksArray| filter: test">
+                        <td>{{task.task}}</td>
+                        <td>{{task.category}}</td>
+                        <td>{{task.completed}}</td>
+                        <td><button ng-click="vm.updateTask(task)" ng-if="task.completed==false">Completed</button>
+                        <td><button ng-click="vm.deleteTask(task)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 
