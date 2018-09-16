@@ -2,7 +2,7 @@ const taskApp = angular.module('TaskApp', []);
 
 taskApp.controller('TaskController', ['$http', function ($http) {
     const self = this;
-    self.message = ('Did you remember to ride in a helicopter today?');
+    self.message = ('Remember to ride in a helicopter today');
     self.objectToSend = {};
     self.getTask = function () {
         $http({
