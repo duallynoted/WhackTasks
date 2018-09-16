@@ -15,12 +15,13 @@
 </head>
 
 <body class="container" ng-app="TaskApp">
-    <h1>WhackTasks</h1>
+    <h1><i class="fas fa-check-double"></i>WhackTasks<i class="fas fa-check-double"></i></h1>
     <div ng-controller="TaskController as vm">
-        {{vm.message}}
+        {{vm.message}} <i class="fas fa-helicopter"></i>
         <form ng-model="vm.objectToSend">
-            <input ng-model="vm.objectToSend.task" type="text" placeholder="Your Task" required>
-            <input ng-model="vm.objectToSend.category" type="text" placeholder="Type of Task?" required>
+            <br>
+            <input ng-model="vm.objectToSend.task" type="text" placeholder="WhackTask" required>
+            <input ng-model="vm.objectToSend.category" type="text" placeholder="Groceries? Banking?" required>
             <input ng-model="vm.objectToSend.completed" type="text" placeholder="Completed Y/N?" required>
             <button class="btn btn-primary" ng-click="vm.addTask(vm.objectToSend)">You Must Click This</button>
             <input class="form-group col-md-6" type="text" ng-model="test" placeholder="Find Your WhackTask">
