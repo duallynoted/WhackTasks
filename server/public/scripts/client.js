@@ -9,7 +9,6 @@ taskApp.controller('TaskController', ['$http', function ($http) {
             method: 'GET',
             url: '/tasks'
         }).then(function (response) {
-            console.log('Back from Server with GET', response);
             self.tasksArray = response.data;
         }).catch(function (error) {
             alert('Unable to GET from Server', error);
@@ -17,7 +16,6 @@ taskApp.controller('TaskController', ['$http', function ($http) {
         })
     };
     self.addTask = function (newTask) {
-        console.log(self.objectToSend);
         $http({
             method: 'POST',
             url: '/tasks',
@@ -76,7 +74,7 @@ taskApp.controller('TaskController', ['$http', function ($http) {
                         icon: "success",
                     });
                 } else {
-                    swal("Your WhackTask is still ready for you to complete!");
+                    swal("Well, go get it done then!");
                 }
             });
     }

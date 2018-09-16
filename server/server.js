@@ -38,7 +38,6 @@ const Task = mongoose.model('tasks', taskSchema);
 app.post('/tasks', (req, res) => {
     console.log('in /tasks POST');
     Task.create(req.body).then(() => {
-        console.log('Item added', req.body);
         res.sendStatus(201);
     }).catch((error) => {
         console.log(error);
@@ -48,7 +47,6 @@ app.post('/tasks', (req, res) => {
 
 app.get('/tasks', (req, res) => {
     Task.find({}).then(function (response) {
-        console.log('Hey, LOOOK', response);
         res.send(response);
     }).catch((error) => {
         console.log("Error in server .find", error);
@@ -73,7 +71,6 @@ app.put('/tasks', (req, res) => {
   });
 
 app.delete('/tasks', (req, res) => {
-    console.log('Delete to /tasks req.query =', req.query);
     Task.findByIdAndRemove(req.query._id).then((results) => {
         res.send(results);
     }).catch((error) => {
