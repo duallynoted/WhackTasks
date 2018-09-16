@@ -35,7 +35,7 @@ taskApp.controller('TaskController', ['$http', function ($http) {
             text: "Get on With Your Day!",
             icon: "success",
             button: "Ooooh, click me, click ME!",
-          });
+        });
         $http({
             method: 'PUT',
             url: '/tasks',
@@ -70,7 +70,7 @@ taskApp.controller('TaskController', ['$http', function ($http) {
                         alert('Error updating Task!');
                         console.log('Error', error);
                     })
-                    swal("Just like that, your WhackTask is gone.", {
+                    swal("Your WhackTask is gone. Go forth and be awesome.", {
                         icon: "success",
                     });
                 } else {

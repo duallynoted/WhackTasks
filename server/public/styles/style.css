@@ -1,3 +1,9 @@
+body{
+    color: rgba(70, 43, 20, 0.865);
+    background-color: rgb(138, 3, 3)
+}
+
+
 table, tr, td, th{
     border: 1px solid black;
     border-collapse: collapse;

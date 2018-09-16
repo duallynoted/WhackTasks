@@ -60,7 +60,7 @@ app.put('/tasks', (req, res) => {
         _id: req.query._id,
         task: req.query.task,
         category: req.query.category,
-        completed: true
+        completed: false
     }
     Task.findByIdAndUpdate(taskToUpdate._id, taskToUpdate).then((results) => {
       res.send(results);

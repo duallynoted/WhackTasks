@@ -24,12 +24,12 @@
                 <br>
                 <div class="row">
                     <div class="col-md-6">
-                        <input ng-model="vm.objectToSend.task" type="text" placeholder="WhackTask" required>
+                        <input ng-model="vm.objectToSend.task" type="text" placeholder="Add New WhackTask" required>
                         <input ng-model="vm.objectToSend.category" type="text" placeholder="Groceries? Banking?"
                             required>
                     </div>
                 </div>
-                <input ng-model="vm.objectToSend.completed" type="text" placeholder="Completed Y/N?" required>
+                <input class="form-group col-md-4" ng-model="vm.objectToSend.completed" type="text" placeholder="Do this today? True/False?" required>
                 <button class="btn btn-primary" ng-click="vm.addTask(vm.objectToSend)">Create WhackTask</button>
                 <br>
                 <br>
@@ -41,11 +41,11 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Task</th>
+                        <th>WhackTask</th>
                         <th>Category</th>
-                        <th>Status</th>
+                        <th>Must Do Today</th>
                         <th>Completed</th>
-                        <th>Delete</th>
+                        <th>Get Rid of It</th>
                     </tr>
                 </thead>
                 <tbody id="task-output">
@@ -53,7 +53,8 @@
                         <td>{{task.task}}</td>
                         <td>{{task.category}}</td>
                         <td>{{task.completed}}</td>
-                        <td><button class="btn btn-success" ng-click="vm.updateTask(task)" ng-if="task.completed==false">Got it done?</button>
+                        <td><button class="btn btn-success" ng-click="vm.updateTask(task)" ng-if="task.completed==true">Got
+                                it done?</button>
                         <td><button class="btn btn-secondary" ng-click="vm.deleteTask(task)">Delete</button></td>
                     </tr>
                 </tbody>
