@@ -51,8 +51,8 @@
                         <td>{{task.task}}</td>
                         <td>{{task.category}}</td>
                         <td>{{task.completed}}</td>
-                        <td><button ng-click="vm.updateTask(task)" ng-if="task.completed==false">Completed</button>
-                        <td><button ng-click="vm.deleteTask(task)">Delete</button></td>
+                        <td><button class="btn btn-success" ng-click="vm.updateTask(task)" ng-if="task.completed==false">Got it done?</button>
+                        <td><button class="btn btn-secondary" ng-click="vm.deleteTask(task)">Delete</button></td>
                     </tr>
                 </tbody>
             </table>
