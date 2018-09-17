@@ -13,8 +13,8 @@ taskApp.controller('TaskController', ['$http', function ($http) {
         }).catch(function (error) {
             alert('Unable to GET from Server', error);
             console.log('Error', error);
-        })
-    };
+        })//end GET call
+    };//end getTask
     self.addTask = function (newTask) {
         $http({
             method: 'POST',
@@ -27,8 +27,8 @@ taskApp.controller('TaskController', ['$http', function ($http) {
         }).catch(function (error) {
             alert('Unable to add WhackTask', error);
             console.log('Error', error);
-        });
-    }
+        });//end POST call
+    }//end addTask
     self.updateTask = function (taskToUpdate) {
         swal({
             title: "WhackTastic!",
@@ -46,8 +46,8 @@ taskApp.controller('TaskController', ['$http', function ($http) {
         }).catch(function (error) {
             alert('Error updating WhackTask');
             console.log('Error', error);
-        })
-    }
+        });//end PUT call
+    }//end updateTask
 
     self.deleteTask = function (taskToDelete) {
         swal({
@@ -69,7 +69,7 @@ taskApp.controller('TaskController', ['$http', function ($http) {
                     }).catch(function (error) {
                         alert('Error updating Task!');
                         console.log('Error', error);
-                    })
+                    });//end delete Call
                     swal("Your WhackTask is gone. Go forth and be awesome.", {
                         icon: "success",
                     });
@@ -77,7 +77,7 @@ taskApp.controller('TaskController', ['$http', function ($http) {
                     swal("Well, go get it done then!");
                 }
             });
-    }
+    }//end deleteTask
     self.getTask();
 
 }]);

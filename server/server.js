@@ -55,7 +55,6 @@ app.get('/tasks', (req, res) => {
 });
 
 app.put('/tasks', (req, res) => {
-    // console.log('PUT to /tasks req.body =', req.body);
     const taskToUpdate = {
         _id: req.query._id,
         task: req.query.task,
