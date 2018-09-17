@@ -10,7 +10,7 @@ There is search functionality which allows users to search quickly for any keywo
 
 Technologies used:
 
--Angular JS
+-AngularJS
 
 -Bootstrap
 
