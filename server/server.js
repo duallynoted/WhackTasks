@@ -4,7 +4,7 @@ app = express();
 const bodyParser = require('body-parser');
 
 //globals
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 //uses
 app.use(express.static('server/public'));
@@ -17,7 +17,7 @@ app.listen(PORT, () => {
 
 //connect to Mongo via mongoose
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/todos', ({ useNewUrlParser: true }));
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/todos');
 
 mongoose.connection.on('connected', () => {
     console.log('Connected to Mongo');
