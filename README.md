@@ -1,5 +1,5 @@
 # WhackTasks
-*remember to ride in a helicopter today
+*remember to ride in a helicopter today*
 
 This is a quirky task organizer called WhackTasks. It is a full stack application.
 
